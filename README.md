@@ -1,32 +1,28 @@
-# @buccaneerai/PACKAGE_NAME
-> 🔨 FIXME - add description
+# @buccaneerai/linear16
+> 🎶 Converts audio data to LINEAR16 format
 
-FIXME - TODOS
-- Replace all instances of `"PACKAGE_NAME"` (in this repository) with the name of your package
-- Look for the items that say FIXME and fix them.  There are only a couple.
+> ⚠️ This module will not run on Apple M1 chips because the FFMPEG (installed via ffmpeg-static) does not support the ARM architecture.
 
 ## Installation
 This is a private package. It requires setting up access in your npm config.
 
 ```bash
-yarn add @buccaneerai/PACKAGE_NAME
+yarn add @buccaneerai/linear16
 ```
 
 ## API
 
-FIXME - write some docs so other devs know how the public API works.
-### `myFunc`
+### `audioFileToLinear16`
 ```js
-import {from} from 'rxjs';
-import {myFunction} from '@buccaneerai/PACKAGE_NAME';
+import {audioFileToLinear16} from '@buccaneerai/linear16';
 
-const string$ = from(['foo', 'bar']);
-const output$ = string$.pipe(myFunction());
-output$.subscribe(console.log); 
+const inputFile = './my-file.mp3';
+const outputFile = './my-file.linear16';
+const obs$ = audioFileToLinear16(inputFile, outputFile);
+obs$.subscribe(console.log); 
 // Output:
-// foo
-// bar
+// my-file.linear16
 ```
 
 ## Contributing, Deployments, etc.
-See [CONTRIBUTING.md](https://github.com/buccaneerai/PACKAGE_NAME/blob/master/docs/CONTRIBUTING.md) file for information about deployments, etc.
+See [CONTRIBUTING.md](https://github.com/buccaneerai/linear16/blob/master/docs/CONTRIBUTING.md) file for information about deployments, etc.

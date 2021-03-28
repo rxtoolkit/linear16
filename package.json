@@ -1,16 +1,16 @@
 {
-  "name": "@buccaneerai/PACKAGE_NAME",
+  "name": "@buccaneerai/linear16",
   "version": "1.0.0",
-  "description": "FIXME",
+  "description": "🎶 Converts audio data to LINEAR16 format",
   "main": "dist/index.js",
-  "repository": "https://github.com/buccaneerai/PACKAGE_NAME.git",
+  "repository": "https://github.com/buccaneerai/linear16.git",
   "author": "Buccaneer LLC <opensource@buccaneer.ai>",
   "license": "UNLICENSED",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "bugs": {
-    "url": "https://github.com/buccaneerai/PACKAGE_NAME/issues"
+    "url": "https://github.com/buccaneerai/linear16/issues"
   },
   "keywords": [],
   "directories": {
@@ -19,12 +19,17 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "linear16": "node ./scripts/index.js"
+  },
   "scripts": {
     "build": "BABEL_ENV=build babel src --out-dir dist --source-maps --extensions .js --config-file ./babel.config.js --delete-dir-on-start --no-comments",
-    "test": "mocha --require @babel/register --require @babel/polyfill \"./{,!(node_modules)/**/}*.test.js\" --exit --require source-map-support"
+    "test": "mocha --require @babel/register --require @babel/polyfill \"./{,!(node_modules)/**/}*.test.js\" --exit --require source-map-support",
+    "linear16": "node ./scripts/index.js"
   },
   "dependencies": {
     "lodash": "^4.17.20",
+    "mime": "^2.5.2",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
