@@ -7,8 +7,6 @@ import {shortenChunks} from '@buccaneerai/rxjs-fs';
 // https://stackoverflow.com/questions/61323549/converting-8khz-mulaw-to-pcm-16khz
 const mulawToLinear16 = ({
   sampleRate = 8000,
-  channels = 1,
-  bitDepth = '8m', // 8-bit mu-Law
   // 1 second of MULAW audio is 8kb (8000hz * 8-bit-depth * 1 channel / 8 bytes per bit)
   // Don't use chunks that are too small because they won't be transformed accurately to LINEAR16.
   // Don't use chunks that are too long because it will increase lag/latency for downstream results
@@ -17,6 +15,8 @@ const mulawToLinear16 = ({
   chunk$ => chunk$.pipe(
     shortenChunks(chunkSize),
     map(chunk => {
+      const channels = 1;
+      const bitDepth = '8m';
       const wav = new WaveFile();
       wav.fromScratch(channels, sampleRate, bitDepth, chunk);
       wav.fromMuLaw();
