@@ -31,7 +31,7 @@ linear16$.subscribe(); // outputs a stream of buffers, encoded as LINEAR16
 | :--------- | :-------: | :--:      | :--:     | :--:     | :--:    | :--:       | :-----                  | :-----:  |
 | l16        | 16        | 16❓      | ❓ 1     |  ✅      | ❌      | ❌         | Standard for STT       | ✅       |
 | flac       | ❓        | ❓        | ❓       |  ✅      | ✅      | ✅         | Compressed PCM         |         |
-| 32-bit PCM | 32        | ❓        | ❓       |  ✅      | ❌      | ❌         | Raw PCM (32-bit floats) | ✅      |
+| 32-bit PCM | 32        | ❓        | ❓       |  ✅      | ❌      | ❌         | Raw PCM (32-bit floats) |       |
 | basic      | 8         | 8         |  1        | ❌      | ❌      | ✅         | Telephone calls (USA)   | ✅       |
 | mulaw      | 8         | ❓ 8      |  1        | ❌      | ❌      | ✅         | Telephone calls (USA)   | ✅       |
 | mpeg/mp3   | 16        | 44.1      | 2❓      |  ❌      | ✅      | ✅          | Music and video        |          |
