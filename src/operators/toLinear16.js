@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import {throwError} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
@@ -6,10 +7,12 @@ import mulawToLinear16 from '../internals/mulawToLinear16';
 // import wavToLinear16 from '../internals/wavToLinear16';
 // import mpegToLinear16 from '../internals/mpegToLinear16';
 
-// References:
-// https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Audio_codecs
-// See: https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-audio-formats
-// optional: parameters include codecs, rate, channels, endianness
+
+const errors = {
+  noPipelineForMimeType: mimeType => new Error(`no pipeline for mimeType: ${mimeType}`),
+};
+
+// SEE README for audio encoding information
 const supportedMimeTypes = [
   {audioFormat: 'linear16', mimeType: 'audio/l16'},
   // {audioFormat: 'wav', mimeType: 'audio/wav'},
@@ -18,10 +21,14 @@ const supportedMimeTypes = [
   // {audioFormat: 'mpeg', mimeType: 'audio/mpeg'},
   // {audioFormat: 'mpeg', mimeType: 'audio/mp3'},
   // {audioFormat: 'mpeg', mimeType: 'audio/mp4'},
+  // {audioFormat: 'mpeg', mimeType: 'audio/mpa'},
+  // Mulaw: Lossy codec often used for raw audio in USA, such as phone calls
+  {audioFormat: 'basic', mimeType: 'audio/basic'}, // basic is single-channel Mulaw at 8000Hz and 8-bit depth
   {audioFormat: 'mulaw', mimeType: 'audio/x-mulaw'},
-  // {audioFormat: 'flac', mimeType: 'audio/flac'}, // lossless compression
+  {audioFormat: 'mulaw', mimeType: 'audio/pcmu'},
   // {audioFormat: 'webm', mimeType: 'audio/webm'},
   // {audioFormat: 'alaw', mimeType: 'audio/alaw'},
+  // {audioFormat: 'alaw', mimeType: 'audio/pcma'},
   // 'audio/l16;rate=16000',
   // 'audio/l16; rate=16000',
   // {audioFormat: 'webm', mimeType: 'audio/webm; codecs=opus', // default recording data type from browsers}
@@ -39,15 +46,17 @@ const supportedMimeTypes = [
   // {audioFormat: 'gpp', mimeType: 'audio/3gpp2'},
 ];
 
-const errors = {
-  noPipelineForMimeType: mimeType => new Error(`no pipeline for mimeType: ${mimeType}`),
-};
-
+// see README for audio encoding information
 const pipelines = {
   'linear16': {
-    config: {},
-    transformer: tap,
+    config: {
+      bitDepth: '16',
+    },
+    transformer: () => tap(),
   },
+  // {audioFormat: 'flac', mimeType: 'audio/flac'},
+  // 'flac': {
+  // },
   // 'wav': {
   //   config: {},
   //   transformer: wavToLinear16,
@@ -56,9 +65,19 @@ const pipelines = {
   //   config: {},
   //   transformer: mpegToLinear16,
   // },
+  'basic': {
+    config: {
+      sampleRate: 8000,
+      bitDepth: '8m',
+      channels: 1,
+    },
+    transformer: mulawToLinear16,
+  },
   'mulaw': {
     config: {
+      // variable sampleRate
       bitDepth: '8m',
+      channels: 1,
     },
     transformer: mulawToLinear16,
   },
@@ -70,8 +89,8 @@ const toLinear16 = ({
   channels = 1,
   firstChunkContainsHeaders = true,
 }) => chunk$ => {
-  const cleanMimeType = cleanupMimeType(mimeType);
-  const match = supportedMimeTypes.find(m => m.mimeType === cleanMimeType);
+  const parsedMimeType = cleanMimeType(mimeType);
+  const match = supportedMimeTypes.find(m => m.mimeType === parsedMimeType);
   if (!match) return throwError(errors.noPipelineForMimeType(mimeType));
   const pipeline = get(pipelines, match.audioFormat);
   const operator = pipeline.transformer({
@@ -84,4 +103,5 @@ const toLinear16 = ({
   return linear16Chunk$;
 };
 
+export const testExports = {errors};
 export default toLinear16;
