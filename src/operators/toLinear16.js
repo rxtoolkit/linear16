@@ -68,7 +68,7 @@ const pipelines = {
   'basic': {
     config: {
       sampleRate: 8000,
-      bitDepth: '8m',
+      bitDepth: '8',
       channels: 1,
     },
     transformer: mulawToLinear16,
@@ -76,7 +76,7 @@ const pipelines = {
   'mulaw': {
     config: {
       // variable sampleRate
-      bitDepth: '8m',
+      bitDepth: '8',
       channels: 1,
     },
     transformer: mulawToLinear16,
