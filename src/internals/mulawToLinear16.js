@@ -16,7 +16,7 @@ const mulawToLinear16 = ({
     shortenChunks(chunkSize),
     map(chunk => {
       const channels = 1;
-      const bitDepth = '8m';
+      const bitDepth = '8';
       const wav = new WaveFile();
       wav.fromScratch(channels, sampleRate, bitDepth, chunk);
       wav.fromMuLaw();
