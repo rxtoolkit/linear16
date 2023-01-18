@@ -1,6 +1,6 @@
 {
   "name": "@buccaneerai/rxjs-linear16",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "🎶 Converts audio data to LINEAR16 format",
   "main": "dist/index.js",
   "repository": "https://github.com/buccaneerai/rxjs-linear16.git",
