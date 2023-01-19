@@ -22,8 +22,12 @@ const mulawToLinear16 = ({
       wav.fromMuLaw();
       wav.toSampleRate(16000); // resample
       // get 16-bit samples (LINEAR16 at 16000 Hz)
-      const samples = get(wav, 'data.samples');
-      const samplesBuffer = Buffer.from(samples);
+      // const samples = get(wav, 'data.samples'); // Returns UInt8Array
+      const samples = wav.getSamples(true, Int16Array);
+      console.log('samples', samples, samples.length);
+      // const samplesBuffer = Buffer.from(samples);
+      const samplesBuffer = Buffer.from(samples.buffer);
+      // console.log('samplesBuffer', samplesBuffer.toString('asci'));
       return samplesBuffer;
     })
   )
