@@ -65,6 +65,3 @@ If you want to learn more, these web pages are helpful:
 - [Mozilla: Common browser audio mimetypes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
 - [GCP STT: Intro to audio codecs](https://cloud.google.com/speech-to-text/docs/encoding)
 - [RFC describing mime types](https://www.rfc-editor.org/rfc/rfc3190.txt)
-
-## Contributing, Deployments, etc.
-See [CONTRIBUTING.md](https://github.com/rxtoolkit/linear16/blob/master/docs/CONTRIBUTING.md) file for information about deployments, etc.
