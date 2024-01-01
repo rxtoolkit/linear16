@@ -896,14 +896,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@buccaneerai/rxjs-fs@^2.0.0":
-  version "2.0.0"
-  resolved "https://npm.pkg.github.com/download/@buccaneerai/rxjs-fs/2.0.0/e778d394005535f9722fd3c3ef26629cb4bc6e17fc1e70e16836f2f9b2274a18#641833108d6f36f4b9f4b98b6fe63d30c771cf53"
-  integrity sha512-RqC9Z2kA5miJD16efHeo54ahyhy8VL7IBMKYqS0DMeTatYyb5Kh/AbZnx9pJcOIJ/AmADZNJ/rJU5xBNxyA7Lg==
-  dependencies:
-    lodash "^4.17.20"
-    rxjs "^6.6.3"
-
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents":
   version "2.1.8-no-fsevents"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.tgz#da7c3996b8e6e19ebd14d82eaced2313e7769f9b"
@@ -920,6 +912,14 @@
     path-is-absolute "^1.0.0"
     readdirp "^2.2.1"
     upath "^1.1.1"
+
+"@rxtk/fs@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rxtk/fs/-/fs-1.0.0.tgz#c871e93aca91fae831e72e83d487aa30c25b9772"
+  integrity sha512-Y/Fnptrn8e06We4gj4NsuZg0L6D0id4NPzkbmJYp72aGUdazpOeFuEE76fTHuO8t0gdR//mtqnO0u+ME9aUeaQ==
+  dependencies:
+    lodash "^4.17.20"
+    rxjs "^6.6.3"
 
 "@sinonjs/commons@^1.6.0", "@sinonjs/commons@^1.7.0", "@sinonjs/commons@^1.8.1":
   version "1.8.2"

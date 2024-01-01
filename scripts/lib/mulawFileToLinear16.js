@@ -1,5 +1,5 @@
 const path = require('path');
-const {fromFile, shortenChunks, writeToFile} = require('@buccaneerai/rxjs-fs');
+const {fromFile, shortenChunks, writeToFile} = require('@rxtk/rxjs-fs');
 
 const mulawToLinear16 = require('../../dist/internals/mulawToLinear16').default;
 console.log('mulawToLinear16', mulawToLinear16);

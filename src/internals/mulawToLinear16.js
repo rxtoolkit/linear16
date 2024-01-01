@@ -1,7 +1,7 @@
 import {WaveFile} from 'wavefile';
 import get from 'lodash/get';
 import {map} from 'rxjs/operators';
-import {shortenChunks} from '@buccaneerai/rxjs-fs';
+import {shortenChunks} from '@rxtk/fs';
 
 // https://stackoverflow.com/questions/64003753/encode-linear16-audio-to-twilio-media-audio-x-mulaw-nodejs
 // https://stackoverflow.com/questions/61323549/converting-8khz-mulaw-to-pcm-16khz

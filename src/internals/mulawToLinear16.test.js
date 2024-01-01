@@ -5,7 +5,7 @@ import {expect} from 'chai';
 // import sinon from 'sinon';
 import {marbles} from 'rxjs-marbles/mocha';
 import {take,tap} from 'rxjs/operators';
-import {fromFile, shortenChunks, writeToFile} from '@buccaneerai/rxjs-fs';
+import {fromFile, shortenChunks, writeToFile} from '@rxtk/fs';
 
 import mulawToLinear16 from './mulawToLinear16';
 

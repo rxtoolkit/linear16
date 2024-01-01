@@ -1,19 +1,16 @@
-# @buccaneerai/rxjs-linear16
+# @rxtk/linear16
 > 🎶 Converts stream of audio chunks to LINEAR16 format (single-channel 16-bit PCM at sample rate of 16KHz)
 
-## Installation
-This is a private package. It requires setting up access in your npm config.
-
 ```bash
-yarn add @buccaneerai/rxjs-linear16
+yarn add @rxtk/linear16
 ```
 
 ## API
 
 ### `toLinear16`
 ```js
-import {fromFile} from '@buccaneerai/rxjs-fs';
-import {toLinear16} from '@buccaneerai/rxjs-linear16';
+import {fromFile} from '@rxtk/fs';
+import {toLinear16} from '@rxtk/linear16';
 
 const inputFile = './my-audio-file.mulaw';
 const audioChunk$ = fromFile({filePath: inputFile});
@@ -70,4 +67,4 @@ If you want to learn more, these web pages are helpful:
 - [RFC describing mime types](https://www.rfc-editor.org/rfc/rfc3190.txt)
 
 ## Contributing, Deployments, etc.
-See [CONTRIBUTING.md](https://github.com/buccaneerai/linear16/blob/master/docs/CONTRIBUTING.md) file for information about deployments, etc.
+See [CONTRIBUTING.md](https://github.com/rxtoolkit/linear16/blob/master/docs/CONTRIBUTING.md) file for information about deployments, etc.
