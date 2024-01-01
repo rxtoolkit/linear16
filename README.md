@@ -2,6 +2,10 @@
 > 🎶 Converts stream of audio chunks to LINEAR16 format (single-channel 16-bit PCM at sample rate of 16KHz)
 
 ```bash
+npm i @rxtk/linear16
+```
+
+```bash
 yarn add @rxtk/linear16
 ```
 
